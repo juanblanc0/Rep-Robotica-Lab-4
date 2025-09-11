@@ -25,18 +25,7 @@ disp('A23 ='); disp(A23)
 disp('A34 ='); disp(A34)
 
 T04 = A01*A12*A23*A34;
-T03 = A01*A12*A23;
 disp('T04 ='); disp(T04)
-disp('T03 ='); disp(T03)
-
-% Definir el punto home
-q_1 = [1.5708    0.1861    2.8604];
-
-% Sustituir en T04
-T_home = subs(T03, [th1 th2 th3], q_1);
-
-disp('T03 en punto 1 = ');
-disp(vpa(T_home, 4))   % vpa para ver con 4 decimales
 
 q_2 = [-pi/2, pi/9, -pi/6, -(4*pi/9)];
 
@@ -45,3 +34,4 @@ T_1 = subs(T04, [th1 th2 th3 th4], q_2);
 
 disp('T04 en punto 2 = ');
 disp(vpa(T_1, 4))   % vpa para ver con 4 decimales
+
