@@ -76,14 +76,15 @@ Ve = 25*[0; 0; -1; 0; 0; 0]; T = 2; div = 50; dt = T/div; qt = [1.5708; 0.2463; 
 for i=1:div
  
 J_eval = double(subs(J, [th1; th2; th3; th4], qt));  % Jacobiano numérico
-qp = pinv(J_eval)*Ve;                                %Velocidad
+qp = pinv(J_eval)*Ve;                                % Velocidad
 qt1 = qt + qp*dt;                                    % qt1 numérico                    
 qt=qt1;
 
 %T = double(subs(T04, [th1; th2; th3; th4], qt));
-%coords = [T(1,4), T(2,4), T(3,4)]                    %Coordenadas Efector Final
-%or = [T(1,1);T(2,1);T(3,1)]                          %Orientacion Efector Final
+%coords = [T(1,4), T(2,4), T(3,4)]                    % Coordenadas Efector Final
+%or = [T(1,1);T(2,1);T(3,1)]                          % Orientacion Efector Final
 
 fprintf('Iter %03d -> [%.3f, %.3f, %.3f, %.3f]\n', i, qp(1), qp(2), qp(3), qp(4)); % Mostrar velocidades
 fprintf('Iter %03d -> [%.3f, %.3f, %.3f, %.3f]\n', i, qt(1), qt(2), qt(3), qt(4)); % Mostrar angulos
 end
+
